@@ -23,13 +23,18 @@ import static ch.lambdaj.Lambda.*;
 public abstract class BaseStompDataAdapter implements SmartDataProvider {
 
 	private ItemEventListener listener;
+	
 	private static final String USER = "";
 	private static final String PASSWORD = "";
+	
+	private static final String HOST = "localhost";
+	private static final int PORT = 61613;
+	
 	private Connection con;
 
 
 	public void init(Map params, File configDir) throws DataProviderException {
-		con = new Connection("localhost", 61613, USER, PASSWORD);
+		con = new Connection(HOST, PORT, USER, PASSWORD);
 		try {
 			con.connect();
 		} catch (StompJException e) {
