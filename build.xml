@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Feb 15, 2011 9:33:17 PM                                                        
+
+     stompadapters    
+     description
+                   
+     mwicat                                                                
+     ====================================================================== -->
+<project name="stompadapters" default="default">
+	
+	<property name="lightstreamer.dir" location="c:/dev/lightstreamer"/>
+	<property name="js.dir" location="c:/htdocs/ls/commons/lightstreamer"/>
+
+	<description>
+            description
+    </description>
+
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="deploy" description="description">
+        
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: deploy                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="deploy">
+		<delete dir="${lightstreamer.dir}/adapters/stomp_raw" />
+		<delete dir="${lightstreamer.dir}/adapters/stomp_json" />
+    	<copy file="bin/BaseStompDataAdapter.class" todir="${lightstreamer.dir}/shared/classes" />
+    	<copy file="bin/BaseStompDataAdapter$1.class" todir="${lightstreamer.dir}/shared/classes" />
+    	<copy file="bin/RawStompDataAdapter.class" todir="${lightstreamer.dir}/adapters/stomp_raw/classes" />
+    	<copy file="bin/JsonStompDataAdapter.class" todir="${lightstreamer.dir}/adapters/stomp_json/classes" />
+    	<copy file="config/adapters_raw.xml" tofile="${lightstreamer.dir}/adapters/stomp_raw/adapters.xml" />
+    	<copy file="config/adapters_json.xml" tofile="${lightstreamer.dir}/adapters/stomp_json/adapters.xml" />
+    	<copy file="js/lsstomp.js" todir="${js.dir}" />
+    </target>
+
+</project>

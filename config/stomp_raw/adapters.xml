@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<adapters_conf id="STOMP_RAW">
+    <metadata_provider>
+        <adapter_class>com.lightstreamer.adapters.metadata.LiteralBasedProvider</adapter_class>
+    </metadata_provider>
+    <data_provider>
+        <adapter_class>RawStompDataAdapter</adapter_class>
+    </data_provider>
+</adapters_conf>
