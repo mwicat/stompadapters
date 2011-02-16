@@ -1,3 +1,5 @@
+var MESSAGE_FIELD = "msg";
+
 function LSStompClient() {
 	this.onmessageframe = function (frame) {};
 	this.onopen = function () {};
@@ -17,18 +19,17 @@ function LSStompClient() {
 LSStompClient.prototype.subscribe = function(channel) {
 	var me = this;
 	var group = [ channel ];
-	var schema = [ "msg" ];
+	var schema = [ MESSAGE_FIELD ];
 
 	// create a NonVisualTable, ro receive the potfolio updates
 	this.table = new NonVisualTable(group, schema, "RAW");
 	this.table.setSnapshotRequired(true);
 
 	this.table.onItemUpdate = function(itemPos, updateInfo, itemName) {
-		var msg = updateInfo.getNewValue("msg");
-		var frame = {"msg": msg}
+		var msg = updateInfo.getNewValue(MESSAGE_FIELD);
+		var frame = {MESSAGE_FIELD: msg}
 		me.onmessageframe(frame);
 	};
-	
 
 	this.table.onStart = function() {
 		me.onopen();
