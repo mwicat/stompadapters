@@ -1,3 +1,8 @@
+Description:
+
+This is a collection of data adapters for Lightstreamer push engine. It provides support for STOMP
+protocol by implementing simple STOMP client proxy.
+
 Setup:
 
 Customize build.xml to your needs and run ant.
