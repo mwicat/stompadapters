@@ -1,0 +1,9 @@
+Setup:
+
+Customize build.xml to your needs and run ant.
+
+Dependencies:
+
+- jackson
+- lambdaj
+- stompj
